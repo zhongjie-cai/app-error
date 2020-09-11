@@ -1,18 +1,25 @@
 package apperror
 
 import (
-	"encoding/json"
+	"errors"
 	"fmt"
 	"strings"
 )
 
 // func pointers for injection / testing: apperror.go
 var (
+	fmtSprint              = fmt.Sprint
 	fmtSprintf             = fmt.Sprintf
 	fmtErrorf              = fmt.Errorf
 	stringsJoin            = strings.Join
-	jsonMarshal            = json.Marshal
+	formatExtraDataFunc    = formatExtraData
+	printBaseAppErrorFunc  = printBaseAppError
+	getErrorMessageFunc    = getErrorMessage
+	printInnerErrorsFunc   = printInnerErrors
+	errorsIs               = errors.Is
+	equalsErrorFunc        = equalsError
+	appErrorContainsFunc   = appErrorContains
+	innerErrorContainsFunc = innerErrorContains
 	cleanupInnerErrorsFunc = cleanupInnerErrors
-	wrapErrorFunc          = WrapError
-	wrapSimpleErrorFunc    = WrapSimpleError
+	newBaseAppErrorFunc    = NewBaseAppError
 )
